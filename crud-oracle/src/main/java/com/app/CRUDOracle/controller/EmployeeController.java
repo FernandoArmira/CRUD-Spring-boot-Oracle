@@ -2,6 +2,7 @@ package com.app.CRUDOracle.controller;
 
 import com.app.CRUDOracle.model.Employee;
 import com.app.CRUDOracle.repo.EmployeeRepo;
+import com.app.CRUDOracle.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +16,18 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepo employeeRepo;
 
+    @Autowired
+    private EmployeeService employeeService;
+
     @PostMapping("/save")
-    public ResponseEntity<String> saveEmployee(@RequestBody Employee employee){
+    public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
         try {
-            employeeRepo.save(employee);
+            //employeeRepo.save(employee);
+            return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.OK);
         } catch (Exception e){
-            return new ResponseEntity<String>("Not inserted", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(employee, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<String>("Successfully entered", HttpStatus.OK);
+
     }
 
     @GetMapping("/select")
