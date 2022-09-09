@@ -17,6 +17,10 @@ public class RequestDTO {
         this.name = name;
     }
 
+    public RequestDTO() {
+
+    }
+
     public int getId() {
         return id;
     }

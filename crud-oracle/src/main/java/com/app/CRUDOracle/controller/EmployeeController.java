@@ -20,7 +20,7 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @PostMapping("/save")
-    public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
+    public ResponseEntity<Object> saveEmployee(@RequestBody Employee employee){
         try {
             //employeeRepo.save(employee);
             return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.OK);
