@@ -1,2 +1,2 @@
-# CRUD-Spring-boot-Oracle
-CRUD utilizando Spring boot y base de datos Oracle
+# CRUD-Spring-boot-Mysql
+CRUD utilizando Spring boot y base de datos Mysql
